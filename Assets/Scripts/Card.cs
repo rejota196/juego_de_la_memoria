@@ -2,30 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Card : MonoBehaviour
 {
     private Animator anim;
-    
-
+    private bool isRotated;
+     
     void Start(){
-        anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();        
     }
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0) && !isRotating) 
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); 
-            RaycastHit hit;
+    
+    public void Flip(){
+        if(!isRotated){
+            anim.SetTrigger("ToShow");
+            isRotated = true;    
+        }
+    }
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.collider.gameObject == gameObject) 
-                {
-                    anim.SetTrigger("ToShow");
-                    
-                    
-                }
-            }
+    public void Hide(){
+        if(isRotated){
+            anim.SetTrigger("ToHide");
+            isRotated = false;
         }
     }
 
