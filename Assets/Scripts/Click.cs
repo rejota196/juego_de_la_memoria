@@ -8,6 +8,7 @@ public class Click : MonoBehaviour
     [SerializeField]
     private Cards cards;
     
+    
     private void Update()
     {
         if (Input.GetMouseButtonDown(0)) 
@@ -18,8 +19,7 @@ public class Click : MonoBehaviour
             {
                 if (hit.collider.gameObject.tag == "Card") 
                 {
-                    string name = hit.collider.gameObject.name;
-                    cards.FlipCards(name);                                               
+                    cards.FlipCards(hit.collider.gameObject);                                               
                     
                 }
             }
