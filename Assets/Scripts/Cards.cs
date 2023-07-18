@@ -25,7 +25,7 @@ public class Cards : MonoBehaviour
     }
 
     IEnumerator Wait(){
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         HideCards();
                 
     }
@@ -48,7 +48,7 @@ public class Cards : MonoBehaviour
         Card cCard = null;
         foreach(GameObject card in cards){
             cCard = card.GetComponent<Card>();
-            cCard.Hide();
+            cCard.Hide();            
         }
         flippedCards = 0;
     }

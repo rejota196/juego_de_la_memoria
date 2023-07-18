@@ -19,19 +19,24 @@ public class Card : MonoBehaviour
     public void Flip(){
         if(!isRotated){
             anim.SetTrigger("ToShow");
-            isRotated = true;    
+            isRotated = true;
+                
         }
     }
 
     public void Hide(){
-        if(isRotated){
+        if(isRotated && !isBlocked){
             anim.SetTrigger("ToHide");
             isRotated = false;
         }
     }
 
-    public void BlockCard(){
+    public void LockCard(){
         isBlocked = true;
+    }
+
+    public void UnLockCard(){
+        isBlocked = false;
     }
 
     public bool GetIsBloqued(){
